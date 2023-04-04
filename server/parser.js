@@ -76,12 +76,11 @@ const getPosts = async () => {
             const author = await pen.$eval('header>div>address>a', el => el.textContent);
             result.push({image, name, likes, link, author});
         }
-        console.log('Finished parser...', result)
         return result;
     } catch (e) {
         console.log(e)
     } finally {
-        // await browser.close();
+        await browser.close();
     }
 };
 
